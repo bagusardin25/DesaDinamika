@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesaDinamika | Platform Simulasi Kebijakan Desa Berbasis AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <i class="fa-solid fa-leaf text-primary"></i> 
+            <span>Desa<span class="text-primary">Dinamika</span></span>
+        </div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="view-landing">Beranda</button>
+            <button class="nav-btn" data-target="view-dashboard">Meja Kerja Kades</button>
+            <div class="user-profile">
+                <img src="https://i.pravatar.cc/150?img=11" alt="Admin Profile">
+                <span>Kades Budi</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container for Views -->
+    <main id="app-container">
+        
+        <!-- VIEW 1: Landing Page -->
+        <section id="view-landing" class="view active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="badge">Inovasi GEMASTIK 2025</div>
+                    <h1>Simulasi Kebijakan Desa Cerdas Berbasis <span class="gradient-text">AI Multi-Agent</span></h1>
+                    <p>Uji kebijakan publik, identifikasi risiko konflik, dan optimalkan penggunaan Dana Desa dalam ruang simulasi virtual sebelum diimplementasikan di dunia nyata.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" onclick="app.switchView('view-dashboard')">
+                            <i class="fa-solid fa-rocket"></i> Coba Simulasi Sekarang
+                        </button>
+                        <button class="btn btn-outline btn-lg">
+                            <i class="fa-regular fa-circle-play"></i> Tonton Demo
+                        </button>
+                    </div>
+                    <div class="stats-row mt-4">
+                        <div class="stat-item">
+                            <h3 class="text-primary">Rp 2.4M</h3>
+                            <p>Potensi Anggaran Terselamatkan</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="text-secondary">98%</h3>
+                            <p>Akurasi Prediksi Risiko</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="text-accent">150+</h3>
+                            <p>Desa Terbantu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <!-- Placeholder for 3D/Dashboard Mockup -->
+                    <div class="mockup-container glass">
+                        <div class="mockup-header">
+                            <div class="dots"><span></span><span></span><span></span></div>
+                            <div class="title">Balai Desa Virtual - Live</div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-chart skeleton"></div>
+                            <div class="mockup-bars">
+                                <div class="bar skeleton w-70"></div>
+                                <div class="bar skeleton w-90"></div>
+                                <div class="bar skeleton w-50"></div>
+                            </div>
+                            <div class="agent-floating agent-1"><img src="https://i.pravatar.cc/150?img=33" alt="Agent"></div>
+                            <div class="agent-floating agent-2"><img src="https://i.pravatar.cc/150?img=47" alt="Agent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h2 class="text-center mb-4">Kemampuan Inti <span class="text-primary">Sistem</span></h2>
+                <div class="feature-cards">
+                    <div class="feature-card glass">
+                        <div class="icon-wrapper"><i class="fa-solid fa-users-gear text-primary"></i></div>
+                        <h3>AI Warga Virtual</h3>
+                        <p>Mensimulasikan respons ribuan warga desa secara real-time berdasarkan data demografi dan profil sosio-ekonomi yang akurat.</p>
+                    </div>
+                    <div class="feature-card glass">
+                        <div class="icon-wrapper"><i class="fa-solid fa-bolt text-accent"></i></div>
+                        <h3>Stress-Test Kebijakan</h3>
+                        <p>Menguji ketahanan regulasi terhadap skenario krisis, penolakan warga, dan intervensi eksternal tak terduga.</p>
+                    </div>
+                    <div class="feature-card glass">
+                        <div class="icon-wrapper"><i class="fa-solid fa-chart-pie text-secondary"></i></div>
+                        <h3>Laporan Mitigasi</h3>
+                        <p>Menghasilkan analisis komprehensif berisi peringatan dini dan rekomendasi perbaikan sebelum kebijakan disahkan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: Dashboard Utama -->
+        <section id="view-dashboard" class="view hidden">
+            <div class="dashboard-header">
+                <div>
+                    <h2>Meja Kerja Kades</h2>
+                    <p class="text-muted">Selamat datang, Budi. Ringkasan performa kebijakan desa Anda.</p>
+                </div>
+                <button class="btn btn-primary" onclick="app.switchView('view-setup')">
+                    <i class="fa-solid fa-plus"></i> Buat Simulasi Baru
+                </button>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card glass">
+                    <div class="metric-icon"><i class="fa-solid fa-layer-group text-primary"></i></div>
+                    <div class="metric-info">
+                        <h3>12</h3>
+                        <p>Total Simulasi Bulan Ini</p>
+                    </div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-icon"><i class="fa-solid fa-check-double text-secondary"></i></div>
+                    <div class="metric-info">
+                        <h3>85%</h3>
+                        <p>Tingkat Keberhasilan</p>
+                    </div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-icon"><i class="fa-solid fa-face-smile text-accent"></i></div>
+                    <div class="metric-info">
+                        <h3>7.8/10</h3>
+                        <p>Indeks Kepuasan Rata-rata</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container glass mt-4">
+                <div class="table-header">
+                    <h3>Riwayat Simulasi Terakhir</h3>
+                    <div class="search-box">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Cari simulasi...">
+                    </div>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Simulasi</th>
+                            <th>Tanggal</th>
+                            <th>Anggaran</th>
+                            <th>Status Risiko</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pemotongan BLT 2025</td>
+                            <td>24 Apr 2026</td>
+                            <td>Rp 150.000.000</td>
+                            <td><span class="badge-status danger">Rawan Konflik</span></td>
+                            <td><button class="btn btn-sm btn-outline" onclick="app.switchView('view-report')">Lihat Laporan</button></td>
+                        </tr>
+                        <tr>
+                            <td>Pembangunan Irigasi Timur</td>
+                            <td>20 Apr 2026</td>
+                            <td>Rp 450.000.000</td>
+                            <td><span class="badge-status success">Aman</span></td>
+                            <td><button class="btn btn-sm btn-outline" onclick="app.switchView('view-report')">Lihat Laporan</button></td>
+                        </tr>
+                        <tr>
+                            <td>Pajak BUMDes Baru</td>
+                            <td>15 Apr 2026</td>
+                            <td>Rp 0</td>
+                            <td><span class="badge-status warning">Perlu Revisi</span></td>
+                            <td><button class="btn btn-sm btn-outline" onclick="app.switchView('view-report')">Lihat Laporan</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- VIEW 3: Setup Wizard -->
+        <section id="view-setup" class="view hidden">
+            <div class="setup-container">
+                <div class="stepper glass">
+                    <div class="step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span>Demografi</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span>Kebijakan</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span>Review</span>
+                    </div>
+                </div>
+
+                <div class="wizard-content glass">
+                    <!-- Step 1 -->
+                    <div class="wizard-step active" id="step-1">
+                        <h3>Konfigurasi Demografi Desa</h3>
+                        <p class="text-muted mb-4">Tentukan komposisi agen warga virtual yang akan merespons kebijakan Anda.</p>
+                        
+                        <div class="upload-area mb-4">
+                            <i class="fa-solid fa-cloud-arrow-up text-primary" style="font-size: 2rem;"></i>
+                            <h4>Unggah Profil Desa (Opsional)</h4>
+                            <p>Upload PDF/Excel untuk auto-fill data</p>
+                            <button class="btn btn-outline btn-sm mt-2">Pilih File</button>
+                        </div>
+
+                        <div class="sliders-grid" id="demography-sliders">
+                            <div class="slider-group">
+                                <label>Petani (<span id="val-petani">40</span>%)</label>
+                                <input type="range" min="0" max="100" value="40" oninput="document.getElementById('val-petani').innerText = this.value">
+                            </div>
+                            <div class="slider-group">
+                                <label>Buruh/Pekerja (<span id="val-buruh">30</span>%)</label>
+                                <input type="range" min="0" max="100" value="30" oninput="document.getElementById('val-buruh').innerText = this.value">
+                            </div>
+                            <div class="slider-group">
+                                <label>UMKM/Pedagang (<span id="val-umkm">20</span>%)</label>
+                                <input type="range" min="0" max="100" value="20" oninput="document.getElementById('val-umkm').innerText = this.value">
+                            </div>
+                            <div class="slider-group">
+                                <label>Pemuda/Pelajar (<span id="val-pemuda">10</span>%)</label>
+                                <input type="range" min="0" max="100" value="10" oninput="document.getElementById('val-pemuda').innerText = this.value">
+                            </div>
+                        </div>
+                        
+                        <div class="add-agent-section mt-3 mb-4 p-3" style="background: rgba(0,0,0,0.1); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.2);">
+                            <label class="text-sm mb-2" style="display:block; font-size:0.9rem; color:var(--text-muted);">+ Tambah Kategori Warga Lainnya</label>
+                            <div style="display:flex; gap: 0.5rem;">
+                                <input type="text" id="new-agent-name" class="form-control" placeholder="Cth: Tokoh Agama, Bidan Desa..." style="padding: 0.5rem 0.8rem;">
+                                <button class="btn btn-outline" onclick="app.addCustomAgent()">Tambah</button>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-actions">
+                            <button class="btn btn-outline" onclick="app.switchView('view-dashboard')">Batal</button>
+                            <button class="btn btn-primary" onclick="app.nextStep(2)">Lanjut ke Kebijakan <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="wizard-step hidden" id="step-2">
+                        <h3>Input Kebijakan / APBDes</h3>
+                        <p class="text-muted mb-4">Jelaskan draf regulasi atau alokasi anggaran yang ingin diuji.</p>
+                        
+                        <div class="form-group mb-3">
+                            <label>Nama Simulasi / Kebijakan</label>
+                            <input type="text" class="form-control" placeholder="Contoh: Pemangkasan Anggaran Jalan untuk BUMDes">
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label>Total Anggaran (Rp)</label>
+                            <input type="text" class="form-control" placeholder="Contoh: 150.000.000" onkeyup="this.value = this.value.replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.');">
+                        </div>
+                        
+                        <div class="upload-area mb-4" style="padding: 1.5rem; background: rgba(0,0,0,0.2);">
+                            <i class="fa-solid fa-file-excel text-success" style="font-size: 1.5rem; margin-right:0.5rem;"></i>
+                            <i class="fa-solid fa-file-pdf text-danger" style="font-size: 1.5rem;"></i>
+                            <h4 style="margin-top: 0.5rem; font-size: 1rem;">Atau Unggah Draf RAB (.xlsx / .pdf)</h4>
+                            <p class="text-xs text-muted">Sistem akan mengekstrak detail kegiatan dan anggaran otomatis</p>
+                            <button class="btn btn-outline btn-sm mt-2">Pilih File RAB</button>
+                        </div>
+                        
+                        <div class="form-group mb-4">
+                            <label>Deskripsi Detail Kebijakan</label>
+                            <textarea class="form-control" rows="5" placeholder="Jelaskan secara rinci... (misal: Memangkas anggaran perbaikan jalan sebesar 30% untuk dialihkan ke BUMDes guna modal usaha pupuk subsidi)"></textarea>
+                        </div>
+
+                        <div class="wizard-actions">
+                            <button class="btn btn-outline" onclick="app.nextStep(1)"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                            <button class="btn btn-primary" onclick="app.nextStep(3)">Lanjut ke Review <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="wizard-step hidden" id="step-3">
+                        <h3>Review & Launch</h3>
+                        <div class="launch-summary text-center my-4">
+                            <div class="spinner mb-3"><i class="fa-solid fa-circle-notch fa-spin text-primary" style="font-size: 3rem;"></i></div>
+                            <h4>Sistem Siap Mengundang <span class="text-primary">500 Warga Virtual</span></h4>
+                            <p class="text-muted">AI telah memetakan demografi dan memuat parameter kebijakan. Balai Desa Virtual sudah siap dibuka.</p>
+                        </div>
+                        
+                        <div class="wizard-actions justify-center mt-4">
+                            <button class="btn btn-outline mr-2" onclick="app.nextStep(2)">Edit Kembali</button>
+                            <button class="btn btn-primary btn-lg launch-btn" onclick="app.startSimulation()">
+                                <i class="fa-solid fa-play"></i> Mulai Simulasi Balai Desa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 4: Live Simulation Interface -->
+        <section id="view-simulation" class="view hidden">
+            <div class="simulation-header glass mb-3">
+                <div class="sim-title">
+                    <span class="live-dot"></span> LIVE: Pemangkasan Anggaran Jalan
+                </div>
+                <div class="sim-timer" id="sim-timer">00:00</div>
+                <button class="btn btn-sm btn-danger" onclick="app.endSimulation()">Akhiri Simulasi</button>
+            </div>
+
+            <div class="simulation-grid">
+                <!-- Left: Agent Feed -->
+                <div class="agent-panel glass">
+                    <div class="panel-header">
+                        <h3><i class="fa-solid fa-users"></i> Daftar Warga Virtual</h3>
+                        <span class="badge">500 Hadir</span>
+                    </div>
+                    <div class="agent-list" id="agent-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Middle: Live Chat/Debate -->
+                <div class="chat-panel glass">
+                    <div class="panel-header" style="display:flex; justify-content: flex-start; gap: 1rem; padding: 0.8rem 1rem;">
+                        <div style="width: 45px; height: 45px; border-radius: 50%; background: var(--primary); display:flex; align-items:center; justify-content:center; font-size: 1.5rem; color: white;">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <h3 style="margin: 0; font-size: 1.1rem; line-height: 1.2;">Grup Balai Desa Virtual</h3>
+                            <span style="font-size: 0.8rem; color: var(--success);">Online - 500 Anggota</span>
+                        </div>
+                        <div style="color: var(--text-muted); display:flex; gap: 1rem; align-items:center; font-size: 1.2rem;">
+                            <i class="fa-solid fa-video"></i>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="typing-indicator hidden" id="typing-indicator">
+                        <span></span><span></span><span></span> Warga sedang merespons...
+                    </div>
+                </div>
+
+                <!-- Right: Metrics & God Mode -->
+                <div class="metrics-panel">
+                    <div class="glass metrics-top mb-3">
+                        <h3><i class="fa-solid fa-chart-line"></i> Sentimen Real-time</h3>
+                        <div class="gauge-container">
+                            <div class="gauge">
+                                <div class="circular-progress" data-value="75">
+                                    <span class="progress-value">75%</span>
+                                </div>
+                                <span>Kepuasan Petani</span>
+                            </div>
+                            <div class="gauge">
+                                <div class="circular-progress danger" data-value="82">
+                                    <span class="progress-value text-danger">82%</span>
+                                </div>
+                                <span>Risiko Konflik</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass god-mode-panel">
+                        <h3><i class="fa-solid fa-bolt"></i> Suntikkan Situasi / Krisis</h3>
+                        <p class="text-xs text-muted mb-3">Uji ketahanan kebijakan dengan memberikan isu mendadak.</p>
+                        
+                        <div class="intervention-btns">
+                            <button class="btn btn-sm btn-outline btn-block text-left mb-2" onclick="app.injectCrisis('hoax')">
+                                <i class="fa-brands fa-whatsapp text-success"></i> Inject: Isu Hoax WhatsApp
+                            </button>
+                            <button class="btn btn-sm btn-outline btn-block text-left mb-2" onclick="app.injectCrisis('protes')">
+                                <i class="fa-solid fa-bullhorn text-danger"></i> Inject: Protes Kelompok Pemuda
+                            </button>
+                            <button class="btn btn-sm btn-outline btn-block text-left" onclick="app.injectCrisis('subsidi')">
+                                <i class="fa-solid fa-hand-holding-dollar text-primary"></i> Inject: Janji Subsidi Tambahan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 5: Executive Report -->
+        <section id="view-report" class="view hidden">
+            <div class="report-container glass">
+                <div class="report-header">
+                    <div class="report-title-area">
+                        <h2>Laporan Mitigasi Risiko Kebijakan</h2>
+                        <h3 class="text-muted">Pemangkasan Anggaran Jalan untuk BUMDes</h3>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn btn-outline"><i class="fa-solid fa-print"></i> Cetak</button>
+                        <button class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Export PDF</button>
+                    </div>
+                </div>
+
+                <div class="ai-conclusion warning-box mt-4">
+                    <div class="icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="content">
+                        <h4>Kesimpulan AI: Perlu Revisi Taktis</h4>
+                        <p>Kebijakan ini menguntungkan kelompok Petani (75% mendukung), namun memicu penolakan keras dan risiko konflik tinggi (82%) dari kelompok Buruh dan Pemuda karena akses jalan sangat vital bagi mobilitas mereka. Implementasi dalam kondisi saat ini tidak disarankan tanpa penyesuaian.</p>
+                    </div>
+                </div>
+
+                <div class="report-grid mt-4">
+                    <div class="chart-section glass">
+                        <h4><i class="fa-solid fa-chart-area"></i> Tren Sentimen Warga</h4>
+                        <div class="dummy-chart">
+                            <!-- CSS pure representation of a chart -->
+                            <div class="chart-bars">
+                                <div class="c-bar h-60"></div>
+                                <div class="c-bar h-65"></div>
+                                <div class="c-bar h-50"></div>
+                                <div class="c-bar h-40"></div>
+                                <div class="c-bar h-30 bg-danger"></div>
+                                <div class="c-bar h-20 bg-danger"></div>
+                                <div class="c-bar h-25 bg-danger"></div>
+                            </div>
+                            <div class="chart-labels">
+                                <span>Menit 1</span>
+                                <span>Inject Hoax</span>
+                                <span>Menit 5</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recommendations-section glass">
+                        <h4><i class="fa-solid fa-lightbulb text-accent"></i> Rekomendasi Actionable</h4>
+                        <ul class="rec-list">
+                            <li><strong>Kompensasi Tertarget:</strong> Sisihkan 5% dari modal BUMDes untuk program padat karya perbaikan jalan ringan bagi pemuda setempat.</li>
+                            <li><strong>Komunikasi Publik:</strong> Fokuskan sosialisasi pada manfaat ekonomi jangka panjang dari BUMDes untuk menyerap tenaga kerja lokal.</li>
+                            <li><strong>Mitigasi Hoax:</strong> Aktifkan aparatur desa tingkat RT/RW untuk mengklarifikasi bahwa perbaikan jalan tidak dihentikan total, melainkan ditunda sebagian.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-center">
+                    <button class="btn btn-outline" onclick="app.switchView('view-dashboard')">Kembali ke Dashboard</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
